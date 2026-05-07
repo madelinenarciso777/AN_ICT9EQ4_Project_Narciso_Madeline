@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Log In</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="style.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    *{
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .wrapper{
+        display: flex;
+        flex: 1;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    body{
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-weight: normal;
+        background-color: #222222;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        overflow-x: hidden;
+        background-image: url(IMAGES/background/basicback.png);
+        background-size: cover; 
+        background-attachment: fixed;
+        background-position: center; 
+    }
+
+   
+    footer {
+        background-color: #c39c5b;
+        min-height: 60px; 
+        width: 100%;
+        display: flex;
+        flex-direction: column; 
+        align-items: center;
+        justify-content: center;
+        color: black;
+        font-size: 0.95rem;
+        padding: 10px 0; 
+    }
+
+    .footer-source { 
+        font-size: 0.75rem; 
+        margin-top: 4px;
+    }
+
+    h1,h2, h3,label,p{
+        color: #f5f0e6;
+    }
+
+    .container{
+        display: flex;
+        justify-content: center;
+        align-items: stretch;   
+        gap: 0;
+        margin: 80px auto;  
+        padding: 30px;
+        color: #f5f0e6;
+    }
+
+    #login-h1, #login-h3{
+        color: #f5f0e6;
+    }
+
+    #login-h1{
+        font-size: 1.7rem;
+    }
+
+    #login-h3{
+        font-size: 1.2rem;
+    }
+
+    .name-row{
+        display: flex;
+        gap: 20px;
+    }
+
+    .name-field{
+        flex: 1;
+    }
+
+
+    .form-control{
+        background-color: #222121;
+        border: 1px solid #c39c5b;
+        color: #f5f0e6;
+    }
+
+    .form-control:focus{
+        background-color: #222121;
+        border: 1px solid #c39c5b;
+        color: #f5f0e6;
+        box-shadow: 0 0 5px rgba(195,156,91,0.5);
+    }
+
+    .login-btn{
+        background-color: #c39c5b;
+        border: none;
+        color: #212529;
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 40px;
+        cursor: pointer;
+        height: auto;
+        width: 100px;
+    }
+
+    .login{
+        background-color: #222121;
+        padding: 25px;
+        width: 350px;
+        height: auto;
+        border-radius:  15px 15px 15px 15px;
+        box-shadow: 0px 8px 25px rgba(172,171,171,0.3);
+    }
+
+    .login label{
+        align-self: flex-start;
+    }
+
+    .input-wrapper{
+        position: relative;
+        width: 100%;
+    }
+
+    .input-wrapper i{
+        position: absolute;
+        left: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #c39c5b;
+        pointer-events: none;
+        font-size: 14px;
+    }
+
+    .input-wrapper .form-control{
+        padding-left: 38px;
+    }
+
+    .form-control{
+        background-color: #222121;
+        border: 1px solid #c39c5b;
+        color: #f5f0e6;
+    }
+
+    .form-control:focus{
+        background-color: #222121;
+        border: 1px solid #c39c5b;
+        color: #f5f0e6;
+        box-shadow: 0 0 5px rgba(195,156,91,0.5);
+    }
+
+    .stay-logged{
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    #checkbox{
+        width: 16px;
+        height: 16px;
+        accent-color: #c39c5b;
+    }
+
+    #login-btn{
+        background-color: #c39c5b;
+        border: none;
+        color: #212529;
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 15px;
+        cursor: pointer;
+        width: 100px;
+        margin-top: 8px;
+        height: auto;
+
+    }
+
+    #login-btn:hover{
+        background-color: #f0be69;
+        color: #212529;
+    }
+
+    #clear-btn{
+        background-color: transparent;
+        border: 1px solid #c39c5b;
+        color: #c39c5b;
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 15px;
+        cursor: pointer;
+        width: 100px;
+        margin-top: 8px;
+        height: auto;
+    }
+
+    #clear-btn:hover{
+        background-color: rgba(195, 156, 91, 0.1);
+    }
+
+    .btn-container{
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+    }
+
+    .back{
+        background-color: #222121;
+        border: 1px solid #c39c5b;
+        color: #c39c5b;
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 15px;
+        cursor: pointer;
+        width: 100px;
+        height: auto;    
+        display: block;
+        margin-right: auto; 
+    }
+
+    .back:hover{
+        background-color: #22222286;
+    }
+
+    .backuh{
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        padding: 0 20px;
+    }
+
+    #error{
+        color: #ff4d4d;
+        font-size: 0.9rem;
+        text-align: center;
+        margin-top: 15px;
+        min-height: 1.2rem;
+    }
+  </style>
+
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="container">
+
+        <div class="login">
+            <h1>Log In</h1> <br>
+
+            <label for="userInput">Username</label>
+            <div class="input-wrapper">
+                <i class="fa-solid fa-user"></i>
+                <input type="text" id="userInput" class="form-control" required>
+            </div> <br>
+
+            <label for="passInput">Password</label>
+            <div class="input-wrapper">
+                <i class="fa-solid fa-lock"></i>
+                <input type="password" id="passInput" class="form-control" required>
+            </div> <br>
+
+            <div class="stay-logged">
+                <input type="checkbox" id="checkbox">
+                <label for="checkbox">Stay Logged In</label>
+            </div><br>
+
+            <div class="btn-container">
+            <button type="button" id="login-btn" onclick="login()">Log In</button>
+            <button type="button" id="clear-btn" onclick="clearInput()">Clear</button>
+            </div>
+
+            <p id="error"></p>
+        </div>
+    </div>
+
+     <div class="backuh">
+            <button class="back"onclick="activate()"><i class="fa-solid fa-arrow-left"></i> Back</button>
+        </div>
+        
+</div>
+
+    
+    <footer class="p-3 text-center">  <div>Tungul | Narciso, M | Chu Tan | 9 - Emerald &copy; 2026</div>
+        <div class="footer-source">Source: OBMC, AI: ChatGPT, Claude, Gemini</div>
+    </footer>
+
+
+    <script>
+        // this is the main login file that (this is the one connected to the dashboard) checks if the inputted username and password matches the stored values in the local storage //
+        var correctUser = localStorage.getItem("username");
+        var correctPass = localStorage.getItem("password");
+
+        var attempt = 0;
+        var MaxTry = 3;
+
+        function login(){
+            var username = document.getElementById("userInput").value;
+            var password = document.getElementById("passInput").value;
+
+            // checks if the inputted username and password matches the stored username and password in the local storage//
+            if (!correctUser || !correctPass){
+                alert("No registered account found.")
+                return;
+            }
+
+            /* if the username and password matches what is stored in the local storage, the user will be directed to the dashboard, if not
+            the user will be alerted that the log in failed and will be given only 3 attempts to log in if the user fails the three attempts,
+            the account will be "locked" and the user will be directed to a blank page. */
+            if( username === correctUser && password === correctPass){
+                
+                alert("Log In Successful! Welcome " + correctUser)
+                
+                window.location.href = "dashboard.html"
+            } else{
+                attempt++;
+                var remaining = MaxTry - attempt;
+
+                if (remaining > 0){
+                    error.textContent = "Log In Failed! You have " + remaining  + " attempt(s) left."
+                } else{
+                    error.textContent = "Account Locked. Too many failed attempts."
+                    window.location.href = "blank.html"
+                }
+            }
+        }
+
+        // clears all the input fields and unchecks the checkbox. //
+        function clearInput(){
+            document.getElementById("userInput").value = "";
+            document.getElementById("passInput").value = "";
+            document.getElementById("checkbox").checked = false;
+
+        }
+
+        // redirects the user back to the dashboard. //
+        function activate(){
+            window.location.href = "dashboard.html";
+        }
+    </script>
+    
+</body>
+</html>

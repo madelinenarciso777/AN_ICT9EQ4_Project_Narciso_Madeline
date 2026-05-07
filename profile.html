@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Profile</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    *{
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body{
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-weight: normal;
+        background-color: #222222;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        overflow-x: hidden;
+        background-image: url(IMAGES/background/basicback.png);
+        background-size: cover; 
+        background-attachment: fixed;
+        background-position: center; 
+    }
+    
+    header{
+        background-color: #c39c5b;
+        height: 70px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 30px;
+    }
+
+    .header-logo{
+        width: auto;
+        max-width: 210px;
+        max-height: 55px;
+        object-fit: contain;
+        display: block;
+    }
+
+    .header-logout{
+        display: flex; 
+        align-items: center;
+        justify-content: center;
+        font-size: 25px;
+        padding: 8px;
+        color: #1a1a1a;
+        text-decoration: none;
+    }
+
+    .header-logout:hover{
+        color: rgba(0, 0, 0, 0.247);
+        padding-left: 30px;
+    }
+
+    .wrapper{
+        display: flex;
+        flex: 1;
+    }
+
+    nav{
+        background-color: black;
+        width: 260px;
+        min-height: 100%;
+        display: flex;
+        flex-direction: column;
+        padding: 20px 0;
+        box-shadow: 2px 0px 10px rgba(0,0,0,0.5);
+        flex-shrink: 0;
+        justify-content: flex-start ;
+        align-items: center;
+    }
+
+    .avatar{
+        width: 120px; 
+        height: 120px;
+        border-radius: 50%;
+        background-color: #3a3a3a;
+        border: 3px solid #c39c5b;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        margin-bottom: 18px;
+        justify-content: center;
+    }
+
+    .avatar i{
+        font-size: 3rem;
+        color: #c39c5b;
+    }
+
+
+    .sidebar-profile{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 30px;
+        margin-top: 2.5rem;
+    }
+
+   .nav-button{
+        color: #c39c5b;
+        text-decoration: none;
+        padding: 10px 25px;
+        margin: 6px 0;
+        font-size: 1.3rem; 
+        display: inline-block;
+        width: 100%;
+
+        transition: all 0.3s ease;
+        border-left: 3px solid transparent;
+    }
+
+    .nav-button:hover{
+        background-color: #1a1a1a;
+        color: white;
+        border-left: 3px solid #c39c5b;
+        padding-left: 30px;
+    }
+
+    .nav-avatar{
+        width: 120px; 
+        height: 120px;
+        border-radius: 50%;
+        background-color: #222222;
+        border: 3px solid #fcc260;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        margin-bottom: 18px;
+        justify-content: center;
+        transform: scale(1.05);
+
+    }
+
+    .nav-avatar i{
+        font-size: 3rem;
+        color: #c39c5b;
+    }
+
+    main{
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
+        padding: 0;
+        padding-bottom: 50px;
+    }
+
+    .top-header-design{
+        width: 100%;
+        height: 110px;
+        background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+        url('IMAGES/background/profile.png');
+        background-size: cover;
+        background-position: center 15%;
+        display: flex;
+        align-items: center;
+        padding-left: 40px;
+        border-bottom: 1px solid #444;
+    }
+
+    .main-title{
+        color: #f5f0e6;
+        font-size: 1.8rem;
+        font-weight: bold;
+        text-shadow: 2px 2px 5px rgba(0,0,0,0.8);
+        margin: 0;
+        line-height: 1;
+    }
+
+    .highlight{
+        color: #c39c5b;
+        font-weight: bold;
+    }
+
+    .content-area{
+        padding: 40px 50px;
+        color: #f5f0e6;
+    }
+
+    h1,h2,h4,p,li,span{
+        color: #f5f0e6;
+    }
+
+    footer {
+        background-color: #c39c5b;
+        min-height: 60px; 
+        width: 100%;
+        display: flex;
+        flex-direction: column; 
+        align-items: center;
+        justify-content: center;
+        color: black;
+        font-size: 0.95rem;
+        padding: 10px 0; 
+    }
+
+    .footer-source { 
+        font-size: 0.75rem; 
+        margin-top: 4px;
+    }
+
+    .layout{
+        display: flex;
+        gap: 24px;
+        align-items: flex-start;
+        padding: 40px;
+        justify-content: center;
+    }
+
+    .profile{
+        background-color: #222222;
+        border: 1px solid #3a3a3a;
+        border-radius: 12px;
+        width: 260px;
+        flex-shrink: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 30px 20px 25px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    }
+    
+    .avatar{
+        width: 120px; 
+        height: 120px;
+        border-radius: 50%;
+        background-color: #222222;
+        border: 3px solid #c39c5b;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        margin-bottom: 18px;
+        justify-content: center;
+    }
+
+    .avatar i{
+        font-size: 3rem;
+        color: #c39c5b;
+    }
+
+    .profile-name{
+        color: #f5f0e6;
+        font-size: 1.1rem;
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 6px;
+    }
+
+    .profile-role{
+        color: #c39c5b;
+        font-size: 1.3rem;
+        margin-bottom: 22px;
+    }
+
+    .change-pass-btn{
+        background-color: #c39c5b;
+        border: none;
+        color: #222222;
+        padding: 9px 22px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        border-radius: 10px;
+        cursor: pointer;
+        width: 165px;
+    }
+
+    .change-pass-btn:hover{
+        background-color: #9f804a;
+    }
+
+    .info{
+        background-color: #222222;
+        border: 1px solid #3a3a3a;
+        border-radius: 12px;
+        padding: 30px 35px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+        width: 600px;
+    }
+
+    .info-title{
+        color: #c39c5b;
+        font-size: 1.7rem;
+        font-weight: 700;
+        margin-bottom: 12px;
+        border-bottom: 1px solid #3a3a3a;
+    }
+
+    .info-grid{
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 24px 40px;
+    }
+
+    .info-input{
+        width: 100%;
+    }
+
+    .info-input label{
+        display: block;
+        color: #888;
+        font-size: 1rem;
+        margin-bottom: 6px;
+    }
+
+    .info-input .value{
+        color: #f5f0e6;
+        font-size: 1rem;
+        font-weight: 600;
+        background-color: #222222;
+        border: 1px solid #3a3a3a;
+        border-radius: 8px;
+        padding: 10px 14px;
+        min-height: 42px;
+        display: flex;
+        align-items: center;
+        width: 100%;
+    }
+
+    .fullname-input{
+        display: block;
+        color: #c39c5b;
+        font-size: 1.8rem;
+        margin-bottom: 6px;
+    }
+
+
+  </style>
+
+
+</head>
+<body>
+
+   <header>
+        <a href="dashboard.html" >
+            <img src="IMAGES/logostylecss/logo.webp" class="header-logo">
+        </a>
+        <a href="logout.html" class="header-logout">
+            <i class="fa-solid fa-right-from-bracket"></i>
+        </a>
+    </header>
+
+    <div class="wrapper">
+        <nav>
+
+            <div class="sidebar-profile">
+                <a href="profile.html">
+                    <div class="nav-avatar">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                </a>
+            </div>
+
+            <a href="dashboard.html" class="nav-button">Dashboard</a>
+            <a href="notebooks.html" class="nav-button">Notebooks</a>
+            <a href="tasks.html" class="nav-button">Assignments</a>
+        </nav>
+
+        <main>
+            <div class="top-header-design">
+                <h1 class="main-title">USER PROFILE</h1>
+            </div>
+
+            <div class="layout">
+
+                <div class="profile">
+                    <div class="avatar">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                    <div class="fullname-input">
+                            <div class="value" id="fullname"></div>
+                        </div>
+                    <div class="profile-role">Student</div>
+                    <button class="change-pass-btn" onclick="changePass()">Change Password</button>
+                </div>
+
+                <div class="info">
+                    <div class="info-title">PERSONAL INFORMATION</div>
+                    <div class="info-grid">
+
+                        <div class="info-input">
+                            <label>Username</label>
+                            <div class="value" id="username"></div>
+                        </div>
+
+                         <div class="info-input">
+                            <label>Gender</label>
+                            <div class="value" id="gender"></div>
+                        </div>
+
+                         <div class="info-input">
+                            <label>Email</label>
+                            <div class="value" id="email"></div>
+                        </div>
+
+                         <div class="info-input">
+                            <label>Contact Number</label>
+                            <div class="value" id="contact"></div>
+                        </div>
+
+                         <div class="info-input">
+                            <label>Password</label>
+                            <div class="value" id="password"></div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // the script retrieves the stored user information from the local storage and displays it on the page. // 
+        document.getElementById("fullname").innerHTML = localStorage.getItem("first-name") + " " + localStorage.getItem("last-name");
+
+        document.getElementById("email").innerHTML = localStorage.getItem("email");
+
+        document.getElementById("username").innerHTML = localStorage.getItem("username");
+
+        document.getElementById("password").innerHTML = localStorage.getItem("password");
+        
+        document.getElementById("contact").innerHTML = localStorage.getItem("contact");
+
+        document.getElementById("email").innerHTML = localStorage.getItem("email");
+
+         document.getElementById("gender").innerHTML = localStorage.getItem("gender");
+
+        // just a normal button because I dont want to do local storage anymore //
+         function changePass(){
+            alert("Error. Please try again later.")
+         }
+
+    </script>
+    
+    <footer class="p-3 text-center">  <div>Tungul | Narciso, M | Chu Tan | 9 - Emerald &copy; 2026</div>
+        <div class="footer-source">Source: OBMC, AI: ChatGPT, Claude, Gemini</div>
+    </footer>
+</body>
+</html>

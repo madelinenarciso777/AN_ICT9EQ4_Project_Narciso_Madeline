@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Sign Up</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+
+    *{
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body{
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-weight: normal;
+        background-color: #222222;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        overflow-x: hidden;
+        background-image: url(IMAGES/background/basicback.png);
+        background-size: cover; 
+        background-attachment: fixed;
+        background-position: center; 
+    }
+
+    .wrapper{
+        display: flex;
+        flex: 1;
+    }
+
+    main{
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
+    }
+
+     footer {
+        background-color: #c39c5b;
+        min-height: 60px; 
+        width: 100%;
+        display: flex;
+        flex-direction: column; 
+        align-items: center;
+        justify-content: center;
+        color: black;
+        font-size: 0.95rem;
+        padding: 10px 0; 
+    }
+
+    .footer-source { 
+        font-size: 0.75rem; 
+        margin-top: 4px;
+    }
+
+    h1,h2, h3,label,p{
+        color: #f5f0e6;
+    }
+
+    .container{
+        display: flex;
+        justify-content: center;
+        align-items: stretch;   
+        gap: 0;
+        margin: 80px auto;  
+        padding: 30px;
+        color: #f5f0e6;
+    }
+
+    .signup{
+        background-color: #222121;
+        padding: 25px;
+        width: 440px;
+        height: auto;
+        border-radius: 15px 0 0 15px;
+        box-shadow: 0px 8px 25px rgba(172,171,171,0.3);
+    }
+
+    .login{
+        background-color: #1f1d1d;
+        padding: 25px;
+        width: 350px;
+        height: auto;
+        border-radius: 0 15px 15px 0;
+        box-shadow: 0px 8px 25px rgba(172,171,171,0.3);
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #login-h1, #login-h3{
+        color: #f5f0e6;
+    }
+
+    #login-h1{
+        font-size: 1.7rem;
+    }
+
+    #login-h3{
+        font-size: 1.2rem;
+    }
+
+    .name-row{
+        display: flex;
+        gap: 20px;
+    }
+
+    .name-field{
+        flex: 1;
+    }
+
+    #gender{
+        width: 100%;
+        padding: 10px 10px 10px 38px;
+        border-radius: 5px;
+        border: 1px solid #c39c5b;
+        font-size: 16px;
+        background-color: #222121;
+        color: #f5f0e6;
+    }
+
+    .form-control{
+        background-color: #222121;
+        border: 1px solid #c39c5b;
+        color: #f5f0e6;
+    }
+
+    .form-control:focus{
+        background-color: #222121;
+        border: 1px solid #c39c5b;
+        color: #f5f0e6;
+        box-shadow: 0 0 5px rgba(195,156,91,0.5);
+    }
+
+    .login-btn{
+        background-color: transparent;
+        border: 1px solid #c39c5b;
+        color: #c39c5b;
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 19px;
+        cursor: pointer;
+        width: 55%;
+        margin-top: 8px;
+    }
+
+    .login-btn:hover{
+        background-color: rgba(195, 156, 91, 0.1);
+    }
+
+    #terms{
+        accent-color: #c39c5b;
+        width: 18px;
+        height: 18px;
+    }
+
+    .terms{
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    #register-btn{
+        background-color: #c39c5b;
+        border: none;
+        color: #212529;
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 15px;
+        cursor: pointer;
+        width: 60%;
+        display: block;
+        margin: 0 auto;
+    }
+
+    #register-btn:hover{
+        background-color: #f0be69;
+        color: #212529;
+    }
+
+    .input-wrapper {
+        position: relative;
+    }   
+
+    .input-wrapper i {
+        position: absolute;
+        left: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #c39c5b;
+        pointer-events: none;
+        font-size: 14px;
+    }
+
+    .input-wrapper .form-control,
+    .input-wrapper select {
+        padding-left: 38px;
+    }
+
+  </style>
+
+</head>
+<body>
+
+<div class="wrapper">
+
+    <main>
+
+        <div class="container">
+            <div class="signup">
+
+                <form id="signup-form">
+                    <h1>Sign Up</h1> <br>
+
+                    <div class="name-row">
+
+                        <div class="name-field">
+                            <label for="first-name">First Name</label>
+                            <div class="input-wrapper">
+                            <i class="fa-solid fa-user"></i>
+                            <input type="text" id="first-name" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="name-field">
+                            <label for="last-name">Last Name</label>
+                            <div class="input-wrapper">
+                            <i class="fa-solid fa-user"></i>
+                            <input type="text" id="last-name" class="form-control" required>
+                            </div>
+                        </div>
+
+                    </div> <br>
+
+                    <label for="email">Email</label>
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-envelope"></i>
+                        <input type="email" id="email" class="form-control" required>
+                    </div> <br>
+
+                    <label for="gender">Gender</label>
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-venus-mars"></i>
+                    <select id="gender" name="gender" required>
+                        <option value="disabled selected">Select Gender</option>
+                        <option value="Female">Female</option>
+                        <option value="Male">Male</option>
+                        <option value="Prefer not to say">Prefer not to say</option>
+                    </select>
+                    </div> <br>
+
+                    <label for="contact">Contact Number:</label>
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-phone"></i>
+                        <input type="text" id="contact" class="form-control" required>
+                    </div> <br>
+
+                    <label for="username">Username:</label>
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" id="username" class="form-control" required>
+                    </div> <br>
+                    <label for="password">Password:</label>
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" id="password" class="form-control" required>
+                    </div> <br>
+
+                    <div class="terms">
+                        <input type="checkbox" id="terms" required>
+                        <label for="terms" style="color: #f5f0e6;">I agree to the Terms and Conditions</label>
+                    </div> <br>
+
+                    <button type="submit" id="register-btn">Register</button>
+                </form>
+
+            </div>
+
+            <div class="login">
+                <h1 id="login-h1">Already have an account?</h1> <br>
+                <h3 id="login-h3">Click the button below to log in.</h3> <br>
+                <button class="login-btn"onclick="window.location.href='login-2.html'">Log In</button>
+            </div>
+        </div>
+    </main>
+</div>
+
+    <footer class="p-3 text-center">  <div>Tungul | Narciso, M | Chu Tan | 9 - Emerald &copy; 2026</div>
+        <div class="footer-source">Source: OBMC, AI: ChatGPT, Claude, Gemini</div>
+    </footer>
+
+    <script>
+        // handles the form submission //
+        const signupForm = document.getElementById('signup-form');
+        // get the terms checkbox element //
+        const termsCheckbox = document.getElementById('terms');
+
+        // gets the input values and stores them in a local storage connecting it to the profile and log in form //
+        signupForm.addEventListener('submit', function(e) {
+            
+            e.preventDefault();
+
+            const firstName = document.getElementById('first-name').value;
+            const lastName = document.getElementById('last-name').value;
+            const email = document.getElementById('email').value;
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const contact = document.getElementById('contact').value;
+            const gender = document.getElementById('gender').value;
+
+
+            // checks if all required fields are filled out and if the terms checkbox is checked //
+            if ( !email || !firstName || !lastName || !username || !password || !gender || !termsCheckbox.checked){
+                alert('Please fill out all required fields.')
+
+                return;
+            }
+
+            // Stores the user data in local storage//
+            localStorage.setItem("first-name", firstName);
+            localStorage.setItem("last-name", lastName);
+            localStorage.setItem("email", email);
+            localStorage.setItem("username", username);
+            localStorage.setItem("password", password);
+            localStorage.setItem("contact", contact);
+            localStorage.setItem("gender", gender);
+
+            alert("Registration Successful!");
+            
+            window.location.href = "dashboard.html";
+            
+        })
+    </script>
+    
+</body>
+</html>
